@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >شبكة زين نت اللاسلكية &gt;صفحة الدخول </title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&dispplay=swap" /> -->
+
+
+<!-- cookies-->
+<script>    
+function rem(){
+	var uname = document.getElementById('uname').value;
+    var paswd = document.getElementById('paswd').value;
+    var rem   = document.getElementById('remember').checked;
+
+	if(rem == true){
+    var date = new Date();
+    date.setTime(date.getTime()+(5*1000));
+    var expires = date.toGMTString();
+    date.setTime(date.getTime()+(259200*1000));
+    var expire  = date.toGMTString();
+    document.cookie = 'uname='+uname+';expires='+expire+'';
+    document.cookie = 'paswd='+paswd+';expires='+expire+'';
+    document.cookie = 'error=1;expires='+expires+'';
+    }
+    else{
+    return;
+    }
+	}
+
+	function getCookie(){
+
+	var date = new Date();
+    date.setTime(date.getTime()+(5*1000));
+    var expires = date.toGMTString();
+
+    var SP = document.cookie.split(';');
+    for (i=0; i < SP.length; i++) {
+    name_value = SP[i];
+    str = name_value.substring(0,6);
+    if(str.indexOf("uname") !== -1){
+    uname = name_value.split('=');
+    uname = uname[1];
+    }
+    if(str.indexOf("paswd") !== -1){
+    paswd = name_value.split('=');
+    paswd = paswd[1];
+    }
+
+    if(str.indexOf("error") !== -1){
+    return;
+    }
+
+    }
+
+    if(uname != ""){
+    document.cookie = 'error=1;expires='+expires+'';
+    window.location.href='login?username='+uname+'&password='+paswd+'';
+    }
+
+    }
+
+   getCookie();
+
+</script>
+
+
+
+
+
+
+</head>
+
+
+
+
+
+<body >
+
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script type="text/javascript" src="md5.js"></script>
+    <script type="text/javascript">
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value +
+                '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+    </script>
+   $(endif)
+$(if error)
+<script type="text/javascript">
+
+else if (error == "Expired prepaid card!") {
+document.write("لقد انتهت صلاحية هذا الكرت");
+}
+else if (error == "No more online time left!") {
+document.write("عذراً لقد انتهى الوقت المتاح لك..");
+}
+else if (error == "You are already logged in - access denied") {
+document.write("هذا الحساب مستخدم على جهاز اخر حالياً");
+}
+else if (error == "traffic limit reached") {
+document.write("لقد انتهى رصيد تحميل هذا الحساب..");
+}
+</script>
+$(else)
+$(endif)
+
+    <div class="container-login">
+	<marquee direction=right style="border-radius: 12px;
+    color: #000000;
+    border: 1px solid black;
+    background: #5cebd7;" > تم توفير كروت فئة 500 ريال نظرآ لطلب المشتركين </marquee>
+      <!--  <div class="logo">
+            <img src="assets/shield.svg" alt="">
+        </div>
+        <div class="title">شبكة زين نت الاسلكية</div> -->
+        
+<img src="s.jpg" width="280px" height="150px" style= "border-radius: 30px;">
+        <!-- box info login -->
+        <div class="box" id="infologin">
+        </div>
+        <!-- box info login -->
+
+        <form class="custom-fields" name="login" autocomplete="off" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+            <div class="username-field">
+                <input id='uname' type="number" name="username" class="username-input" placeholder="اسم المستخدم "
+                     />
+            </div>
+            
+			<input id='paswd'  name="password" placeholder="password" class="password-input" type="hidden" />
+			<div class="title">
+                
+				<input  checked id='remember' type='checkbox' name='remember' value="ON" >   حفظ بيانات الكرت </div><br>
+				
+            
+			 
+            <button onclick='return rem();' class="btn-submit" type="submit">دخول</button>
+        </form>
+		
+	<script type="text/javascript">
+var error = "$(error)";
+if (error == "simultaneous session limit reached") {
+document.write("عذراً .. هذا الحساب مستخدم حالياً على جهاز آخر");
+}
+else if (error == "invalid password") {
+document.write("حاول مرة أخرى");
+}
+else if (error == "uptime limit reached") {
+document.write("عذراً لقد انتهى الوقت المتاح لك..");
+}
+else if (error == "Expired prepaid card!") {
+document.write("لقد انتهت صلاحية هذا الكرت");
+}
+else if (error == "No more online time left!") {
+document.write("عذراً لقد انتهى الوقت المتاح لك..");
+}
+else if (error == "You are already logged in - access denied") {
+document.write("هذا الحساب مستخدم على جهاز اخر حالياً");
+}
+else if (error == "traffic limit reached") {
+document.write("لقد انتهى رصيد تحميل هذا الحساب..");
+}
+else if (error == "invalid username or password") {
+document.write("خطأ في رمز الدخول");
+}
+else if (error == "Invalid MAC address!") {
+document.write("هذا الكرت خاص بجهاز آخر");
+}
+else if (error.search("traffic limit") != -1) {
+document.write("لقد انتهى رصيد تحميل هذا الحساب");
+}
+else if (error.search("limit reached") != -1) {
+document.write("لقد انتهى رصيد تحميل هذا الحساب");
+}
+else if (error == "no valid profile found") {
+document.write("كمل الكرت .. سير إشتري واحد ثاني .");
+}
+else if(error.search("uptime limit") != -1) {
+document.write("لقد انتهى رصيد هذا الحساب");	
+}
+else if(error.search("not found") != -1) {
+document.write("رمز الدخول غير صحيح ، الرجاء المحاولة مرة اخرى");	
+}
+else if(error.search("not allowed to log in from this MAC address") != -1) {
+document.write("هذا الحساب خاص بجهاز آخر .. لا تستطيع الدخول به من جهازك");	
+}
+else if(error.search("no more sessions are allowe") != -1) {
+document.write("هذا الحساب موجود حالياً .. ولا يسمح بالدخول بنفس الحساب من جهازين مختلفين");	
+}
+else if(error.search("responding") != -1) {
+document.write("هناك مشكلة في النظام .. يرجى الإتصال بنا لإصلاح المشكلة حالاً ");	
+}
+else if (error == "invalid Calling-Station-Id") {
+document.write("هذا الحساب مقترن بجهاز آخر، لمزيد من المعلومات يرجى الاتصال بخدمة العملاء");
+}
+else document.write("$(error)<br>")
+</script><br>
+
+       
+        
+
+                <div class="status"><a  style="color:red" href="http://z.net"> z.net </a> : للاستعلام عن الرصيد  </div>
+                
+           
+		
+
+       
+
+        <!-- menu item -->
+		<div class="menu-items">
+		<div class="row-items" >
+                <div class="title" background-color="rad"> التنزيل</div>
+                <div class="title"> الصلاحية </div>
+				<div class="title"> عدد الساعات </div>
+				<div class="title"> السعــــر </div>
+            </div>
+		</div>
+        <div class="menu-items">
+
+            
+            <div class="row-items">
+                <div class="title" > 300 Mb </div>
+                <div class="title" dir="rtl"> 3 أيام </div>
+				<div class="title" dir="rtl"> 4 ساعات  </div>
+                <div class="title" dir="rtl">  100 ريال   </div>
+            </div>
+			<div class="row-items">
+                <div class="title" > 600 Mb </div>
+                <div class="title" dir="rtl"> 5 أيام </div>
+				<div class="title" dir="rtl"> 8 ساعات  </div>
+                <div class="title" dir="rtl">  200 ريال   </div>
+            </div>
+			<div class="row-items">
+                <div class="title" > 1600 Mb </div>
+                <div class="title" dir="rtl"> 14 أيام </div>
+				<div class="title" dir="rtl"> 24 ساعات  </div>
+                <div class="title" dir="rtl">  500 ريال   </div>
+            </div>
+			
+        </div>
+		 <div >
+			<div >
+                <div  class="diii" > الكروت متوفرة بقالة عبدالله مصلح   </div>
+               
+            </div>
+			<div >
+                <div  class="diii"> صندقه شلفان   </div>
+               
+            </div>
+			<div >
+                <div  class="diii"> بقالة السبيل   </div>
+               
+            </div>
+			<div >
+                <div  class="diii"> بقالة الروض  </div>
+               
+            </div>
+			<div >
+                <div  class="diii"> بقالة الشهاري  </div>
+               
+            </div>
+			</div>
+		
+        <!-- menu item -->
+
+        <!-- footer -->
+		<div class="link">
+		      <span class="diii">776324112  : للإستعلام </span><br>
+            
+        </div>
+        
+        <!-- footer -->
+    </div>
+
+    
+</body>
+
+</html>
